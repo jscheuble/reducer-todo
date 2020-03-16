@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from 'react';
+import moment from 'moment';
 import { todoReducer, initialState } from '../reducers/todoReducer';
 
 
@@ -15,6 +16,7 @@ const ToDoList = () => {
     const addTodo = e => {
         e.preventDefault();
         dispatch({ type: 'ADD_TODO', payload: inputText });
+        setInputText('');
     }
 
     const clearCompleted = e => {
@@ -22,13 +24,18 @@ const ToDoList = () => {
         dispatch({ type: 'CLEAR_COMPLETED', payload: todos.completed});
     }
 
+    let date = moment().format('LTS');
+
     return(
         <div>
             {todos.map((e, i) => {
                 return (
+                    <>
                     <p className={e.completed ? 'completed' : ''}
                     onClick={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: e.id})}
-                    key={i}>&#9733; {e.task}</p>
+                    key={i}>&#9733; {e.task} </p>
+                    <span className='complete'>{e.completed ? 'Completed at ' + date : ''}</span>
+                    </>
                     );
             })}
 
