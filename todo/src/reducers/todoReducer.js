@@ -11,14 +11,18 @@ export const initialState = [
     }
 ]
 
-export const todoReducer = (state, action) => {
+
+export const todoReducer = (todos, action) => {
     switch (action.type) {
+        case 'ADD_TODO':
+            return [...todos, { 
+                task: action.payload,
+                id: Date.now(),
+                completed: false
+            }];
         case 'TOGGLE_COMPLETE':
-            return {
-                ...state,
-                completed: true
-            };
+            return todos;
         default: 
-            return state;
+            return todos;
     }
 }
