@@ -32,6 +32,10 @@ export const todoReducer = (todos, action) => {
                     return e;
                 }
             }));
+            case 'CLEAR_COMPLETED':
+                return (todos.filter(e => {
+                    return e.completed === false;
+                }));
         default: 
             return todos;
     }

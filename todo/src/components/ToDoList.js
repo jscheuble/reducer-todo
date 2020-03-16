@@ -17,6 +17,11 @@ const ToDoList = () => {
         dispatch({ type: 'ADD_TODO', payload: inputText });
     }
 
+    const clearCompleted = e => {
+        e.preventDefault();
+        dispatch({ type: 'CLEAR_COMPLETED', payload: todos.completed});
+    }
+
     return(
         <div>
             {todos.map((e, i) => {
@@ -30,6 +35,7 @@ const ToDoList = () => {
             <form>
                 <input name='newTodo' value={inputText} onChange={handleChange}/>
                 <button onClick={addTodo}>add new todo</button>
+                <button onClick={clearCompleted}>clear completed</button>
             </form>
         </div>
     );
