@@ -22,7 +22,7 @@ const ToDoList = () => {
             {todos.map((e, i) => {
                 return (
                     <p className={e.completed ? 'completed' : ''}
-                    onClick={() => dispatch({ type: 'TOGGLE_COMPLETE' })}
+                    onClick={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: e.id})}
                     key={i}>&#9733; {e.task}</p>
                     );
             })}

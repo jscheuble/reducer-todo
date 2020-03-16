@@ -21,7 +21,17 @@ export const todoReducer = (todos, action) => {
                 completed: false
             }];
         case 'TOGGLE_COMPLETE':
-            return todos;
+            return (todos.map(e => {
+                if (e.id === action.payload) {
+                    return {
+                        task: e.task,
+                        id: e.id,
+                        completed: !e.completed
+                    }
+                } else {
+                    return e;
+                }
+            }));
         default: 
             return todos;
     }
