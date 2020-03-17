@@ -1,14 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Caveat&display=swap');
+
+body {
+  background-image: url('./img/background.jpg');
+  background-size: cover;
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
+  border: 15px solid #03383E;
+  background-color: #CBF0F4;
+  box-shadow: 5px 5px 5px #6b777e;
+  max-width: 60%;
+  margin: 5% auto;
+  font-family: 'Caveat', sans-serif;
+  font-size: 1.5rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .completed {
   text-decoration: line-through;
 }
 
-.complete {
+.timestamp {
   text-decoration: none;
-  font-size: 12px;
-  margin-top: 0;
-  padding-top: 0;
+  font-size: 1.3rem;
+}
+
+.todo {
+  border: 1px solid #FBF203;
+  background-color: #FBF203;
+  box-shadow: 5px 5px 5px #6b777e;
+  width: 15%;
+  padding: 8% 5%;
+  margin: 2%;
+}
+
+form {
+  margin: 2%;
+}
+
+.newTodo {
+  padding: 2%;
+  margin: 2%;
+  font-family: 'Abel', sans-serif;
+  font-size: 1.5rem;
+}
+
+.button {
+  margin: 2%;
+  padding: 1%;
+  font-family: 'Abel', sans-serif;
+  border: 1px solid #03383E;
+  background: #E4EBEC;
+  font-size: 1.3rem;
+}
+
+.button:hover {
+  color: #fff;
+  background: #03383E;
+  border: 2px solid #fff;
 }

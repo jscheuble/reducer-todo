@@ -24,25 +24,26 @@ const ToDoList = () => {
         dispatch({ type: 'CLEAR_COMPLETED', payload: todos.completed});
     }
 
-    let date = moment().format('LTS');
+    let date = moment().calendar();
 
     return(
         <div>
+            <section className='list'>
             {todos.map((e, i) => {
                 return (
-                    <>
-                    <p className={e.completed ? 'completed' : ''}
-                    onClick={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: e.id})}
-                    key={i}>&#9733; {e.task} </p>
-                    <span className='complete'>{e.completed ? 'Completed at ' + date : ''}</span>
-                    </>
+                    <p className='todo'
+                        onClick={() => dispatch({ type: 'TOGGLE_COMPLETE', payload: e.id})}
+                        key={i}>&#9786; <span className={e.completed ? 'completed' : ''}>{e.task}</span><br/>
+                        <span className='timestamp'>{e.completed ? `Completed ${date}` : ''}</span>
+                    </p>
                     );
             })}
+            </section>
 
             <form>
-                <input name='newTodo' value={inputText} onChange={handleChange}/>
-                <button onClick={addTodo}>add new todo</button>
-                <button onClick={clearCompleted}>clear completed</button>
+                <input className='newTodo' name='newTodo' value={inputText} onChange={handleChange} placeholder='to do...'/>
+                <button className='button' onClick={addTodo}>add new todo</button>
+                <button className='button' onClick={clearCompleted}>clear completed</button>
             </form>
         </div>
     );
